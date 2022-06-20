@@ -77,16 +77,27 @@ class User{
     return $this->cardExpiry;
   }
 
- //validazione data carta di credito ( da testare )
- public function checkExpiry($cardExpiry){
-  
-  $now = new DateTime();
+ 
+  public function checkExpiry($_cardExpiry){ 
 
-  if ($cardExpiry < $now) {
-  echo 'La tua carta è scaduta!';
-  }else{
-    echo 'La tua carta è valida!';
+    $expireDate = strtotime($_cardExpiry);  
+    $now = strtotime('now');
+    
+   
+
+     if ($expireDate < $now) {
+      echo 'La tua carta è scaduta';
+     }
+     else {
+      echo "La tua carta è valida!!";
+     }
   }
- }
+
+  public function getTotal($_total){
+    $total = $_total;
+    
+    $totalDiscount = $total * $this->getDiscount() / 100;
+    return $total - $totalDiscount;
+  }
 }
 ?>

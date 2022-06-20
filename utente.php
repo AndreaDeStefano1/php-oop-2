@@ -4,7 +4,7 @@ require_once __DIR__ . '/class/User.php';
 require_once __DIR__ . '/class/Toy.php';
 require_once __DIR__ . '/class/Food.php';
 
-$user = new User('Peppe', 'Priscolo', 'Via ciao, 123', 'peppe@mail.it', '33123232', '4026503412361111', '12/2024' );
+$user = new User('Peppe', 'Priscolo', 'Via ciao, 123', 'peppe@mail.it', '33123232', '4026503412361111', 'December 2021' );
 
 $cibo = new Food('Cibo per cani' , 90, 'lorem ipsum', 1 , 20, 235);
 $gioco = new Toy('Osso', 10, 'lorem ipsum', 1 , 0);
@@ -44,7 +44,8 @@ $gioco = new Toy('Osso', 10, 'lorem ipsum', 1 , 0);
     <li>
       <?php echo $gioco->getName() . ', ' . $gioco->getPrice() . '€' . ', '  . $gioco->getQuantity() . 'pz' ?>
     </li>
-    <li>Totale</li>
+    <li>Totale : <?php echo $user->getTotal(100)?></li>
+    <li><?php  $user->checkExpiry($user->getCardExpiry())  ?></li>
   </ul>
  
 </body>
