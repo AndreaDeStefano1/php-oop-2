@@ -5,18 +5,18 @@ class User{
   protected $address;
   protected $mail;
   protected $phone;
-  protected $discount;
+  protected $discount = 0;
   protected $cardNumber;
   protected $cardExpiry;
   
-  public function __construct($_name, $_surname, $_address, $_mail, $_phone, $_discount, $_cardNumber, $_cardExpiry )
+  public function __construct($_name, $_surname, $_address, $_mail, $_phone,  $_cardNumber, $_cardExpiry )
   {
     $this->name = $_name;
     $this->surname = $_surname;
     $this->address = $_address;    
     $this->mail = $_mail;
     $this->phone = $_phone;
-    $this->discount = $_discount;
+  
     $this->cardNumber = $_cardNumber;
     $this->cardExpiry = $_cardExpiry;
   }
@@ -55,7 +55,7 @@ class User{
   public function getName(){
     return $this->name;
   }
-  public function getSurame(){
+  public function getSurname(){
     return $this->surname;
   }
   public function getAddress(){
@@ -77,6 +77,16 @@ class User{
     return $this->cardExpiry;
   }
 
- //validazione data carta di credito
+ //validazione data carta di credito ( da testare )
+ public function checkExpiry($cardExpiry){
+  
+  $now = new DateTime();
+
+  if ($cardExpiry < $now) {
+  echo 'La tua carta è scaduta!';
+  }else{
+    echo 'La tua carta è valida!';
+  }
+ }
 }
 ?>

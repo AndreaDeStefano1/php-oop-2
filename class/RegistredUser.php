@@ -14,7 +14,23 @@ class RegistredUser extends User{
 
   }
 
+  //Setter
+  public function setUserame($_username){
+    $this->username = $_username;
+  }
+  public function setPassword($_password){
+    $this->password = $_password;
+  }
 
+
+  //Getter
+
+  public function getUserame(){
+    return $this->username;
+  }
+  public function getPassword(){
+    return $this->password;
+  }
 
 
   public function getDiscount(){
