@@ -44,8 +44,7 @@ $gioco = new Toy('Osso', 10, 'lorem ipsum', 1 , 0);
     <li>
       <?php echo $gioco->getName() . ', ' . $gioco->getPrice() . '€' . ', '  . $gioco->getQuantity() . 'pz' ?>
     </li>
-    <li>Totale : <?php echo $user->getTotal(100)?></li>
-    <li><?php  $user->checkExpiry($user->getCardExpiry())  ?></li>
+    <li>Totale : <?php echo $user->getTotal(100) . 'paga ora' .$user->checkExpiry() ?></li>
   </ul>
  
 </body>

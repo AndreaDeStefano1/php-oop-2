@@ -78,24 +78,22 @@ class User{
   }
 
  
-  public function checkExpiry($_cardExpiry){ 
+  public function checkExpiry(){ 
 
-    $expireDate = strtotime($_cardExpiry);  
+    $expireDate = strtotime($this->cardExpiry);  
     $now = strtotime('now');
     
    
 
      if ($expireDate < $now) {
-      echo 'La tua carta è scaduta';
+      return 'La tua carta è scaduta';
      }
      else {
-      echo "La tua carta è valida!!";
+      return "La tua carta è valida!!";
      }
   }
 
-  public function getTotal($_total){
-    $total = $_total;
-    
+  public function getTotal($total){     
     $totalDiscount = $total * $this->getDiscount() / 100;
     return $total - $totalDiscount;
   }
